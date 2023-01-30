@@ -18,7 +18,7 @@ public class InputManager : MonoBehaviour
     private void OnEnable()
     {
         input.Player.Move.performed += DoMove;
-        input.Player.Move.canceled += StopMove;
+        input.Player.Move.canceled += DoMove;
         input.Player.Jump.performed += DoJump;
         input.Enable();
     }
