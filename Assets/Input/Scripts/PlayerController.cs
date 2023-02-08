@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
 {
+
     public float moveSpeed = 5f;
     private Camera mainCamera;
     private Rigidbody rb;
     private Vector2 moveValue;
-
+    [SerializeField] AnimationManager_Player animator;
 
     void Start()
     {
@@ -30,7 +31,9 @@ public class PlayerController : MonoBehaviour
 
     public void Move(Vector2 direction)
     {
-         moveValue = direction;
+        moveValue = direction;
+
+        animator.MoveAnimation(direction);
     }
 
     public void Jump()
@@ -38,4 +41,14 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Jump!");
     }
 
+    public void Interact()
+    {
+        Debug.Log("Interacting");
+    }
+
+    public void Shoot()
+    {
+        Debug.Log("Shoot");
+    }
 }
+
